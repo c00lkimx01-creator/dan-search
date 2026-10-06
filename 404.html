@@ -7,25 +7,56 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="home-page" style="padding: 40px 20px;">
-        <div class="home-container">
-            <h1 class="logo" style="font-size: 48px; margin-bottom: 20px;">404</h1>
-            <h2 style="font-size: 24px; margin-bottom: 16px; color: var(--text-primary);">ページが見つかりません</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 16px;">
-                申し訳ありません。お探しのページが見つかりました。
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <symbol id="icon-arrow-left" viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6" fill="none" stroke="currentColor" stroke-width="2"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div class="home-page">
+        <div class="home-container" style="text-align: center;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 120px; height: 120px; margin: 0 auto 32px; opacity: 0.5;">
+                <defs>
+                    <linearGradient id="errorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#EF4444" />
+                        <stop offset="100%" style="stop-color:#DC2626" />
+                    </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="80" fill="none" stroke="url(#errorGradient)" stroke-width="2" opacity="0.3"/>
+                <text x="100" y="130" font-size="80" font-weight="bold" text-anchor="middle" fill="url(#errorGradient)">404</text>
+            </svg>
+
+            <h1 style="font-size: 32px; margin-bottom: 12px; color: var(--text-primary);">ページが見つかりません</h1>
+            <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 16px; line-height: 1.6;">
+                申し訳ありません。お探しのページが見つかりました。<br>
+                ホームページに戻ってもう一度検索してみてください。
             </p>
+            
             <a href="/" style="
-                display: inline-block;
-                padding: 11px 32px;
-                background-color: #F8F9FA;
-                border: 1px solid var(--border);
-                border-radius: 4px;
-                color: var(--text-primary);
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 28px;
+                background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+                color: white;
                 text-decoration: none;
-                font-size: 14px;
-                font-weight: 500;
-                transition: all 0.2s;
-            " onmouseover="this.style.boxShadow='var(--shadow-sm)'" onmouseout="this.style.boxShadow='none'">
+                font-size: 15px;
+                font-weight: 600;
+                border-radius: 9999px;
+                box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            " onmouseover="
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 6px 20px rgba(79, 70, 229, 0.4)';
+            " onmouseout="
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 15px rgba(79, 70, 229, 0.3)';
+            ">
+                <svg width="16" height="16" style="transform: rotate(180deg);">
+                    <use xlink:href="#icon-arrow-left"></use>
+                </svg>
                 ホームに戻る
             </a>
         </div>
